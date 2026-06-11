@@ -1,0 +1,43 @@
+### Get all student help requests
+GET http://localhost:8080/api/requests
+
+### Filter by status
+GET http://localhost:8080/api/requests?status=OPEN
+
+### Filter by category
+GET http://localhost:8080/api/requests?category=ACADEMICS
+
+### Create a help request
+POST http://localhost:8080/api/requests
+Content-Type: application/json
+
+{
+  "studentName": "Rahul",
+  "title": "Need help in Spring Boot basics",
+  "description": "I have an interview soon and need a simple explanation of Controller, Service and Repository.",
+  "category": "ACADEMICS",
+  "priority": "HIGH"
+}
+
+### Update status
+PATCH http://localhost:8080/api/requests/1/status
+Content-Type: application/json
+
+{
+  "status": "RESOLVED"
+}
+
+### Add comment
+POST http://localhost:8080/api/requests/1/comments
+Content-Type: application/json
+
+{
+  "authorName": "Ankit",
+  "message": "I have uploaded my DBMS notes. Check the drive link in the class group."
+}
+
+### Get comments
+GET http://localhost:8080/api/requests/1/comments
+
+### Delete request
+DELETE http://localhost:8080/api/requests/3
